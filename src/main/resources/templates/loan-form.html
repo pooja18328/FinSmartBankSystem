@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Apply for Loan - FinSmart Bank</title>
+    <style>
+        body { font-family: Arial; background-color: #f8f9fa; text-align: center; margin-top: 50px; }
+        form { display: inline-block; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 350px; }
+        input, select { width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 8px; }
+        button { background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .msg { margin-top: 20px; font-weight: bold; color: #333; }
+    </style>
+</head>
+<body>
+<h2>Apply for Loan</h2>
+<form th:action="@{/loan/apply}" method="post">
+    <input type="email" name="email" placeholder="Enter your Email" required>
+    <input type="number" name="loanAmount" placeholder="Loan Amount" required>
+    <input type="number" step="0.01" name="interestRate" placeholder="Interest Rate (%)" required>
+    <input type="number" name="tenureMonths" placeholder="Tenure (months)" required>
+    <button type="submit">Apply Loan</button>
+</form>
+
+<div class="msg" th:text="${message}"></div>
+</body>
+</html>

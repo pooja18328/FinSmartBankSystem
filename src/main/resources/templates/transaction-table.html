@@ -1,0 +1,25 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead class="table-primary">
+      <tr>
+        <th>Date</th>
+        <th>Transaction ID</th>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Balance After</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:if="${transactions == null}">
+        <td colspan="5" class="text-center text-danger" th:text="${message}"></td>
+      </tr>
+      <tr th:each="txn : ${transactions}">
+        <td th:text="${txn.date}"></td>
+        <td th:text="${txn.transactionId}"></td>
+        <td th:text="${txn.type}"></td>
+        <td th:text="${txn.amount}"></td>
+        <td th:text="${txn.balanceAfter}"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

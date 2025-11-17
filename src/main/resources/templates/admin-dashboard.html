@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard | FinSmart Banking</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    body {
+      background-color: #f4faff;
+      font-family: Arial, sans-serif;
+    }
+
+    /* HEADER BOX */
+    .header-box {
+      background-color: #b7dff5;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .header-box h2 {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    /* ADMIN CARDS */
+    .admin-card {
+      height: 180px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .admin-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Card Colors */
+    .blue-card {
+      background-color: #0d6efd;
+      color: white;
+    }
+
+    .green-card {
+      border: 3px solid #198754;
+      color: #198754;
+    }
+
+    .yellow-card {
+      border: 3px solid #ffc107;
+      color: #ffc107;
+    }
+
+    .cyan-card {
+      border: 3px solid #0dcaf0;
+      color: #0dcaf0;
+    }
+
+    .admin-card i {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background-color: #b7dff5;">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" th:href="@{/}">
+        <i class="bi bi-bank2 me-2 text-primary fs-4"></i>FinSmart Admin
+      </a>
+
+      <div class="ms-auto">
+        <a class="btn btn-outline-dark btn-sm me-2" th:href="@{/home}">Home</a>
+        <a class="btn btn-outline-dark btn-sm me-2" th:href="@{/login}">Login</a>
+        <a class="btn btn-outline-dark btn-sm" th:href="@{/logout}">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+
+    <!-- HEADER BOX -->
+    <div class="header-box">
+      <h2>Admin Dashboard</h2>
+      <p>Manage all bank operations efficiently</p>
+    </div>
+
+    <!-- ADMIN CARDS -->
+    <div class="row g-4">
+
+      <!-- View Users -->
+      <div class="col-md-6">
+        <a th:href="@{/view-users}" class="text-decoration-none">
+          <div class="admin-card blue-card">
+            <div>
+              <i class="bi bi-people-fill"></i>
+              <p>View Users</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- View Accounts -->
+      <div class="col-md-6">
+        <a th:href="@{/admin/accounts}" class="text-decoration-none">
+          <div class="admin-card green-card">
+            <div>
+              <i class="bi bi-bank"></i>
+              <p>View Accounts</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Manage Loans -->
+      <div class="col-md-6">
+        <a th:href="@{/admin/loans}" class="text-decoration-none">
+          <div class="admin-card yellow-card">
+            <div>
+              <i class="bi bi-journal-check"></i>
+              <p>Manage Loans</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Fund Transfers -->
+      <div class="col-md-6">
+        <a th:href="@{/admin/fund-transfers}" class="text-decoration-none">
+          <div class="admin-card cyan-card">
+            <div>
+              <i class="bi bi-cash-coin"></i>
+              <p>Fund Transfers</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+

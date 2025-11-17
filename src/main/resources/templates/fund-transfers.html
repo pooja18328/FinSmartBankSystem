@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fund Transfers | Admin Dashboard</title>
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="admin-dashboard.html">Admin Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="fund-transfers.html">Fund Transfers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin-manage-loans.html">Manage Loans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="logout.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container my-5">
+        <h2 class="mb-4">Fund Transfers</h2>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Sender Name</th>
+                    <th>Receiver Name</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody id="transferTableBody">
+                <!-- Transfer records will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Optional: Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Example JS to populate table dynamically (replace with backend integration) -->
+    <script>
+        // Example data (replace with fetch from backend)
+        const transfers = [
+            {id: 1, sender: "John Doe", receiver: "Alice Smith", amount: 5000, date: "2025-11-16", time: "10:30 AM"},
+            {id: 2, sender: "Mary Jane", receiver: "Bob Brown", amount: 3000, date: "2025-11-16", time: "11:00 AM"}
+        ];
+
+        const tableBody = document.getElementById('transferTableBody');
+
+        transfers.forEach(t => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${t.id}</td>
+                <td>${t.sender}</td>
+                <td>${t.receiver}</td>
+                <td>${t.amount}</td>
+                <td>${t.date}</td>
+                <td>${t.time}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

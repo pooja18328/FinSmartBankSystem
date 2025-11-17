@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New Account - FinSmart Bank</title>
+  <style>
+    body {
+      font-: Arial, sans-serif;
+      background-color: #f4f9ff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    form {
+      background: white;
+      width: 400px;
+      margin: 40px auto;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .msg-box {
+      margin-top: 20px;
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      background: #e6ffed;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #28a745;
+    }
+  </style>
+</head>
+<body>
+
+<header>FinSmart Bank - Open New Account</header>
+
+<form th:action="@{/accounts/create}" method="post">
+  <h2>Open a New Account</h2>
+  <input type="text" name="name" placeholder="Full Name" required><br>
+  <input type="email" name="email" placeholder="Email Address" required><br>
+  <input type="number" name="initialDeposit" placeholder="Initial Deposit (₹)" required><br>
+  <button type="submit">Open Account</button>
+</form>
+
+<!-- ✅ Success message -->
+<div th:if="${message}" class="msg-box">
+  <p style="color:green; font-weight:bold;">✅ <span th:text="${message}"></span></p>
+  <p><strong>Account No:</strong> <span th:text="${accountNumber}"></span></p>
+  <p><strong>Name:</strong> <span th:text="${name}"></span></p>
+  <p><strong>Balance:</strong> ₹<span th:text="${deposit}"></span></p>
+</div>
+
+</body>
+</html>
